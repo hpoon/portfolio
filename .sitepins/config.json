@@ -3,8 +3,7 @@
   "media": "assets/images",
   "public": "site",
   "configs": [
-    "_config.yml",
-    "site/_config.yml"
+    "_config.yml"
   ],
   "custom-commit": false,
   "arrangement": []
