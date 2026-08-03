@@ -1,7 +1,7 @@
 {
   "content": "_posts",
   "media": "assets/images",
-  "public": "site",
+  "public": "assets",
   "configs": [
     "_config.yml"
   ],
