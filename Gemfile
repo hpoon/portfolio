@@ -1,5 +1,9 @@
 source "https://rubygems.org"
 
+gem "jekyll", "~> 3.9.5"
+gem "rexml", "~> 3.4"
+gem "webrick"
+
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
 # file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
@@ -16,5 +20,6 @@ group :jekyll_plugins do
     gem 'jekyll-seo-tag'
     gem 'jekyll-archives'
     gem 'kramdown'
+    gem 'kramdown-parser-gfm'
     gem 'rouge'
 end
