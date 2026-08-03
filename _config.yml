@@ -1,6 +1,6 @@
 # Site
 name: "Henry Poon"
-title: "Henry Poon"
+title: ""
 description: ""
 logo: ''
 favicon: ''
@@ -80,4 +80,5 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+draft: false
 
