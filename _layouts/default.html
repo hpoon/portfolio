@@ -204,7 +204,7 @@
             const response = await fetch(nextLink.href);
 
             if (!response.ok) {
-              throw new Error("Could not load the next page.");
+              throw new Error("Could not load the next page");
             }
 
             const html = await response.text();
@@ -221,7 +221,7 @@
             if (!nextPosts || nextPosts.children.length === 0) {
               finished = true;
               observer.disconnect();
-              status.textContent = "You’ve reached the end.";
+              status.textContent = "You’ve reached the end";
               return;
             }
 
@@ -233,12 +233,11 @@
               nextLink.remove();
               finished = true;
               observer.disconnect();
-              status.textContent = "You’ve reached the end.";
+              status.textContent = "You’ve reached the end";
             }
           } catch (error) {
             console.error("Infinite scroll failed:", error);
-            status.textContent =
-              "Could not load more posts. Use the pagination link below.";
+            status.textContent = "Could not load more posts";
           } finally {
             isLoading = false;
           }
