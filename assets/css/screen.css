@@ -905,3 +905,9 @@ iframe {
   opacity: 0;
   transition: opacity 0.25s;
 }
+
+img.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

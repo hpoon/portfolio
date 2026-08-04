@@ -7,8 +7,6 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <link rel="icon" href="{{ site.baseurl }}/assets/images/logo.png" />
-
     <title>{{ page.title }} | {{site.name}}</title>
 
     {% seo %}
@@ -25,6 +23,8 @@
     <link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet" />
 
     <script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+
+    {% include mathjax.html %}
   </head>
 
   {% capture layout %}{% if page.layout %}layout-{{ page.layout }}{% endif %}{%
@@ -76,6 +76,10 @@
             <li class="nav-item active">{% else %}</li>
 
             <li class="nav-item">{% endif %}</li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="{{ site.baseurl }}/about">About</a>
+            </li>
 
             {% include search-lunr.html %}
           </ul>
