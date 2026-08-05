@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Printing a Snoopy Omega Speedmaster Clock"
+title: "3D Printing a Snoopy Omega Speedmaster Clock"
 categories:
   - 3D Printing
   - Watches
@@ -30,10 +30,7 @@ First, I took what was there, and changed the colours to match the Snoopy versio
 
 Here I had no choice but somehow get a Snoopy design as that isn't part of the original model. After not being able to find the exact image online, I decided to draw my own. The software of choice here was Inkscape, but because the features in that image are so small, I had to print this piece separately using a 0.2 mm nozzle, while the rest of the model is printed using a 0.4 mm nozzle.
 
-<img
-  class="centered"
-  src="{{ site.baseurl }}/assets/images/Snoopy.png"
-/>
+![]({{ site.baseurl }}/assets/images/Snoopy.png){:.centered}
 
 ## Assembly
 
