@@ -3,6 +3,9 @@ source "https://rubygems.org"
 gem "jekyll", "~> 3.9.5"
 gem "rexml", "~> 3.4"
 gem "webrick"
+gem "csv"
+gem "base64"
+gem "bigdecimal"
 
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
