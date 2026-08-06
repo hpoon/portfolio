@@ -12,7 +12,7 @@ comments: true
     </p>
 
     <p>
-      I’m a full-stack software engineer who spends most of his professional time on backend systems. I majored in mechatronics engineering, and early on in my career, I got to work across embedded software, hardware, and robotics—interests that still tend to follow me into my hobbies.
+      I’m a full-stack software engineer who spends most of his professional time on backend systems. I majored in mechatronics engineering, and early on in my career, I got to work across embedded software, hardware, and robotics-interests that still tend to follow me into my hobbies.
     </p>
 
     <p>

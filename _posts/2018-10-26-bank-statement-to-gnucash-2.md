@@ -25,7 +25,7 @@ That step became tedious quickly enough that I tried to automate it.
 
 As an ordinary account holder, I did not have a direct bank API that I could use to request my own transaction exports programmatically.
 
-The banks already provided the information through their websites, but the normal flow was designed for a person using a browser—not a small personal
+The banks already provided the information through their websites, but the normal flow was designed for a person using a browser-not a small personal
 script retrieving CSV files on a schedule.
 
 So the next version used Selenium to automate the browser steps:
@@ -79,4 +79,4 @@ It confirmed that the real friction in the workflow was not CSV parsing or categ
 flow, export process, security controls, and tendency to change its website without warning.
 
 For now, downloading the files manually remains more reliable. The importer can still save time after that point, and the automation attempt clarified
-which parts of the process are worth simplifying—and which parts are better left deliberately manual.
+which parts of the process are worth simplifying-and which parts are better left deliberately manual.

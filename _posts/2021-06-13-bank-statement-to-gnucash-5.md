@@ -64,8 +64,8 @@ The goal was to make the remaining manual review feel less like data entry and m
 
 The interface was designed so that the review process could be completed using hotkeys alone.
 
-That matters when working through a large statement. Even small delays—moving to the mouse, finding a field, selecting an account, moving back to the next
-transaction—become noticeable when repeated dozens or hundreds of times.
+That matters when working through a large statement. Even small delays-moving to the mouse, finding a field, selecting an account, moving back to the next
+transaction-become noticeable when repeated dozens or hundreds of times.
 
 A keyboard-first workflow makes it possible to:
 
