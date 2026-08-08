@@ -14,13 +14,14 @@ This post is recreated from the original at [https://blog.henrypoon.com/blog/202
 This is a newer version of my earlier post on [running Selenium on WSL1]({% post_url 2017-06-18-running-selenium-webdriver-on-bash-for-windows %}), updated for WSL2. The instructions follow the same high-level approach but include some additional gotchas specific to WSL2.
 
 You will need:
+
 - [WSL2 setup](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) with Firefox installed (I used Ubuntu 20.04)
 - [VcXsrv](https://sourceforge.net/projects/vcxsrv/)
 - [geckodriver](https://github.com/mozilla/geckodriver/releases)
 
 ## How it works
 
-VcXsrv starts up an X server on the Windows host machine. WSL connects to this server to pass on the details of what programs need to be displayed — in this case, the browser window. Geckodriver acts as a middle layer that allows Selenium to interact with Firefox.
+VcXsrv starts up an X server on the Windows host machine. WSL connects to this server to pass on the details of what programs need to be displayed - in this case, the browser window. Geckodriver acts as a middle layer that allows Selenium to interact with Firefox.
 
 ## VcXsrv setup
 

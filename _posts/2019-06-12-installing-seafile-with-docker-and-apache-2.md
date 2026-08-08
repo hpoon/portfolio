@@ -13,7 +13,7 @@ This post is recreated from the original at [https://blog.henrypoon.com/blog/201
 
 [Seafile](https://www.seafile.com) is an open source file sharing software that allows users to set up their own cloud storage at home. Think Dropbox, but self-hosted.
 
-This post describes deploying an instance of Seafile using Docker on a non-standard port (i.e., not 80 and 443). The reason for deploying on a non-standard port is usually because there is already another web server running on standard ports — in my case, Apache 2. In such scenarios, it is necessary to set up a reverse proxy so the Seafile port can be exposed by Apache on ports 80/443. Under typical circumstances, deploying Seafile on a standard port means the app would host itself without needing Apache 2 at all. This guide assumes Ubuntu 16.04, but should apply to other Linux distributions as well.
+This post describes deploying an instance of Seafile using Docker on a non-standard port (i.e., not 80 and 443). The reason for deploying on a non-standard port is usually because there is already another web server running on standard ports - in my case, Apache 2. In such scenarios, it is necessary to set up a reverse proxy so the Seafile port can be exposed by Apache on ports 80/443. Under typical circumstances, deploying Seafile on a standard port means the app would host itself without needing Apache 2 at all. This guide assumes Ubuntu 16.04, but should apply to other Linux distributions as well.
 
 The process can be split into multiple parts:
 
@@ -47,7 +47,7 @@ docker run -d --name seafile \
 
 I recommend setting up Seafile with an actual secret password because it is not easy to change once it is set up.
 
-Note that the port argument shows `8000:80`. This means Docker will use host port 8000 while the container uses port 80 — Docker interprets requests from the host OS on port 8000 as requests on port 80 in the container. Port 8000 was used in my setup because port 80 was already in use.
+Note that the port argument shows `8000:80`. This means Docker will use host port 8000 while the container uses port 80 - Docker interprets requests from the host OS on port 8000 as requests on port 80 in the container. Port 8000 was used in my setup because port 80 was already in use.
 
 Once the command is executed, the necessary files will be downloaded and the container will start and be accessible on port 8000.
 

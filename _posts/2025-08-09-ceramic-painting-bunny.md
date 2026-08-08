@@ -5,6 +5,7 @@ categories:
   - Art
   - Ceramics
   - Painting
+  - Pottery Painting
 image: assets/images/CeramicPaintingPorkyCompleted.jpeg
 description: "A ceramic-painting project inspired by my lop-eared bunny"
 ---

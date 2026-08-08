@@ -40,7 +40,7 @@ Each stage represents a stage in the pipeline (e.g., building, beta deployment, 
 
 ## Defining Constants
 
-First, constants can be defined that can be used throughout the pipeline. This makes it easier to reuse the pipeline script elsewhere — only these constants have to be changed.
+First, constants can be defined that can be used throughout the pipeline. This makes it easier to reuse the pipeline script elsewhere - only these constants have to be changed.
 
 My project uses Maven, so Jenkins downloads its own copy of Maven to execute builds. I have defined it as a constant with the name "Maven 3.3.9" exactly as configured in Jenkins Global Tool Configuration. My project also uses Tomcat, so there are some Tomcat-specific things in there as well.
 
@@ -126,7 +126,7 @@ def deploy(warPathFull, tomcatCtxPath, username, password) {
     } else {
         envSuffix = "prod"
     }
-    sh script: "cp ${warPathFull} ${warPathFull}.${envSuffix}" 
+    sh script: "cp ${warPathFull} ${warPathFull}.${envSuffix}"
     setSpringProfile(warPathFull, isBeta)
     def output = sh script: "curl --upload-file '${warPathFull}.${envSuffix}' " +
             "'http://${username}:${password}@localhost:8081/manager/text/deploy" +

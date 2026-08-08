@@ -14,34 +14,34 @@ This topic came up in one of my lectures and I found it a little challenging to 
 
 In a computer, there are various methods of storing information. Information can be stored in the processor cache, RAM, hard disk, etc. It can be faster to request information from a storage medium that is smaller. However, this smaller storage medium cannot fit all the possible information that can be requested. So the idea is to insert a portion of the data into the faster, smaller medium (the **cache**) and the rest into the slower, larger medium (**main memory**).
 
-If a request is made and the data is not available in the faster, smaller medium first, then the data will be read from the slower, larger medium — this is what is known as a **cache miss**.
+If a request is made and the data is not available in the faster, smaller medium first, then the data will be read from the slower, larger medium - this is what is known as a **cache miss**.
 
 Given that all the data cannot possibly live in the cache, there must be a way to minimize the number of times that the data must be read from the main memory.
 
-## Optimal Caching — Farthest-in-Future
+## Optimal Caching - Farthest-in-Future
 
 ### The Algorithm
 
-The idea is that there is an algorithm that minimizes the number of cache misses that occur for a set of requests. The *Farthest-in-Future Algorithm* evicts the item in the cache that is not requested until the farthest in the future. For example, given the following cache with items "a" through "f":
+The idea is that there is an algorithm that minimizes the number of cache misses that occur for a set of requests. The _Farthest-in-Future Algorithm_ evicts the item in the cache that is not requested until the farthest in the future. For example, given the following cache with items "a" through "f":
 
 | Cache Items | a b c d e f |
 | Future Queries | g a b c e d a b b f |
 
-It is clear that "g" does not exist in the set of cache items and so when "g" is requested, a cache miss will result. An item will be evicted because "g" is not in the cache. According to the *Farthest-in-Future Algorithm*, element "f" will be evicted since it is the one that will be used furthest in the future.
+It is clear that "g" does not exist in the set of cache items and so when "g" is requested, a cache miss will result. An item will be evicted because "g" is not in the cache. According to the _Farthest-in-Future Algorithm_, element "f" will be evicted since it is the one that will be used furthest in the future.
 
 ### Definitions
 
-- **Cache Miss** — Occurs when it is necessary to bring in an item from the main memory into the cache
-- **Schedule** — A list that contains, for each request, which item is brought into the cache, and which item is evicted
-- **Reduced Schedule** — A schedule that only brings in an item when there is a request for that item (so a non-reduced schedule would bring an item into the cache outside of a request for that item)
+- **Cache Miss** - Occurs when it is necessary to bring in an item from the main memory into the cache
+- **Schedule** - A list that contains, for each request, which item is brought into the cache, and which item is evicted
+- **Reduced Schedule** - A schedule that only brings in an item when there is a request for that item (so a non-reduced schedule would bring an item into the cache outside of a request for that item)
 
 ### Theorem
 
 To be shown:
 
-> *Farthest-in-Future* is the optimal algorithm that minimizes the number of cache misses.
+> _Farthest-in-Future_ is the optimal algorithm that minimizes the number of cache misses.
 
-To prove this, let us say there is a schedule SFF that follows the *Farthest-in-Future Algorithm* and that there is a schedule optimal S that has a minimum number of cache misses. It can be shown that it is possible to transform S into SFF by performing a series of evictions without increasing the number of cache misses. Since S is already optimal, and the number of cache misses did not increase, then SFF must be optimal.
+To prove this, let us say there is a schedule SFF that follows the _Farthest-in-Future Algorithm_ and that there is a schedule optimal S that has a minimum number of cache misses. It can be shown that it is possible to transform S into SFF by performing a series of evictions without increasing the number of cache misses. Since S is already optimal, and the number of cache misses did not increase, then SFF must be optimal.
 
 To perform one transformation, the statement below can be used (it should become clearer further on):
 
@@ -54,7 +54,7 @@ Let us say the cache at the start looks like this. S and SFF have the exact same
 | S | a b c d |
 | SFF | a b c d |
 
-Given a schedule S, it can be shown that any request can be made, and the resulting schedule would be equal to the ideal algorithm and does not increase the number of cache misses. Essentially, we want S = S' = SFF after a request is made and that the number of cache misses have not increased. If this can be shown for all different scenarios that items are requested, then *Farthest-in-Future* is the ideal algorithm.
+Given a schedule S, it can be shown that any request can be made, and the resulting schedule would be equal to the ideal algorithm and does not increase the number of cache misses. Essentially, we want S = S' = SFF after a request is made and that the number of cache misses have not increased. If this can be shown for all different scenarios that items are requested, then _Farthest-in-Future_ is the ideal algorithm.
 
 ### Case 1: Item Is Already in the Cache
 
