@@ -36,13 +36,54 @@ comments: true
 
       <p>
         I am not especially active on social media. If you would like to
-        get in touch, email is the best place to start.
+        get in touch, send me a message below.
       </p>
 
-      <a
-        href="mailto:contact@henrypoon.com"
-        class="btn btn-dark"
-      >Email me</a>
+      <form id="contact-form" action="https://formspree.io/f/xwllaqpb" method="POST">
+        <div class="form-group">
+          <label for="contact-email">Your email</label>
+          <input type="email" id="contact-email" name="email" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" class="form-control" rows="5" required></textarea>
+        </div>
+        <!-- Honeypot: hidden from people, bots tend to fill it -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <button type="submit" class="btn btn-dark">Send</button>
+        <p id="contact-status" role="status" class="mt-3"></p>
+      </form>
+
+      <script>
+        (function () {
+          var form = document.getElementById('contact-form');
+          var status = document.getElementById('contact-status');
+          var btn = form.querySelector('button[type="submit"]');
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            btn.disabled = true;
+            status.textContent = 'Sending…';
+            fetch(form.action, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { 'Accept': 'application/json' }
+            }).then(function (res) {
+              if (res.ok) {
+                form.reset();
+                status.textContent = 'Thanks! Your message has been sent.';
+              } else {
+                return res.json().then(function (data) {
+                  status.textContent = (data.errors && data.errors.map(function (x) { return x.message; }).join(', ')) || 'Something went wrong. Please try again.';
+                });
+              }
+            }).catch(function () {
+              status.textContent = 'Something went wrong. Please try again.';
+            }).finally(function () {
+              btn.disabled = false;
+            });
+          });
+        })();
+      </script>
     </div>
 
   </div>
