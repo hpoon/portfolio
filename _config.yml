@@ -5,6 +5,7 @@ description: "A quiet corner of the internet for hobbies, side projects, and occ
 logo: ""
 favicon: ""
 baseurl: ""
+url: "https://www.henrypoon.com"
 include:
   - _pages
 permalink: /:title/
