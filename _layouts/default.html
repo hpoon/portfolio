@@ -19,6 +19,25 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      // Set the theme before the stylesheets load to prevent a flash.
+      (function () {
+        var theme = null;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (e) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+        }
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+
     <title>{{ page.title }} | {{site.name}}</title>
 
     {% seo %}
@@ -126,6 +145,18 @@
               <a class="nav-link" href="{{ site.baseurl }}/feed.xml">RSS</a>
             </li>
 
+            <li class="nav-item">
+              <button
+                id="theme-toggle"
+                class="nav-link btn btn-link"
+                type="button"
+                aria-label="Toggle dark mode"
+                aria-pressed="false"
+              >
+                <i class="fas fa-moon" aria-hidden="true"></i>
+              </button>
+            </li>
+
             {% include search-lunr.html %}
           </ul>
 
@@ -193,6 +224,59 @@
     ></script>
 
     <script src="{{ site.baseurl }}/assets/js/mediumish.js"></script>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var button = document.getElementById("theme-toggle");
+        var media = window.matchMedia("(prefers-color-scheme: dark)");
+
+        function hasSavedChoice() {
+          try {
+            var saved = localStorage.getItem("theme");
+            return saved === "light" || saved === "dark";
+          } catch (e) {
+            return false;
+          }
+        }
+
+        function apply(theme) {
+          root.setAttribute("data-theme", theme);
+          if (!button) {
+            return;
+          }
+          var dark = theme === "dark";
+          button.setAttribute("aria-pressed", dark ? "true" : "false");
+          button.innerHTML = dark
+            ? '<i class="fas fa-sun" aria-hidden="true"></i>'
+            : '<i class="fas fa-moon" aria-hidden="true"></i>';
+        }
+
+        apply(root.getAttribute("data-theme") || "light");
+
+        if (button) {
+          button.addEventListener("click", function () {
+            var next =
+              root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+            apply(next);
+            try {
+              localStorage.setItem("theme", next);
+            } catch (e) {}
+          });
+        }
+
+        function onOsChange(event) {
+          if (!hasSavedChoice()) {
+            apply(event.matches ? "dark" : "light");
+          }
+        }
+        if (media.addEventListener) {
+          media.addEventListener("change", onOsChange);
+        } else if (media.addListener) {
+          media.addListener(onOsChange);
+        }
+      })();
+    </script>
 
     {% if page.url == "/" %}
     <script>
